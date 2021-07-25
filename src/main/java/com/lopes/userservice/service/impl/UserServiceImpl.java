@@ -18,8 +18,8 @@ import java.util.List;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
 
     @Override
     public User saveUser(User user) {
