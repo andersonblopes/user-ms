@@ -13,10 +13,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.ArrayList;
 
 /**
- * The type Userservice application.
+ * The type User ms application.
  */
 @SpringBootApplication
-public class UserserviceApplication {
+public class UserMsApplication {
 
     /**
      * The entry point of application.
@@ -24,7 +24,7 @@ public class UserserviceApplication {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        SpringApplication.run(UserserviceApplication.class, args);
+        SpringApplication.run(UserMsApplication.class, args);
     }
 
     /**
