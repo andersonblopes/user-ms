@@ -12,18 +12,37 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 
+/**
+ * The type Userservice application.
+ */
 @SpringBootApplication
 public class UserserviceApplication {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         SpringApplication.run(UserserviceApplication.class, args);
     }
 
+    /**
+     * Password encoder password encoder.
+     *
+     * @return the password encoder
+     */
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Run command line runner.
+     *
+     * @param userService the user service
+     * @return the command line runner
+     */
     @Bean
     CommandLineRunner run(UserService userService) {
         return args -> {

@@ -32,19 +32,36 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * The type User resource.
+ */
 @Slf4j
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
 public class UserResource {
 
+    /**
+     * The User service.
+     */
     private final UserService userService;
 
+    /**
+     * Gets users.
+     *
+     * @return the users
+     */
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
+    /**
+     * Save user response entity.
+     *
+     * @param user the user
+     * @return the response entity
+     */
     @PostMapping("/user/save")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
@@ -52,6 +69,12 @@ public class UserResource {
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
 
+    /**
+     * Save role response entity.
+     *
+     * @param role the role
+     * @return the response entity
+     */
     @PostMapping("/role/save")
     public ResponseEntity<Role> saveRole(@RequestBody Role role) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/role/save").toUriString());
@@ -59,12 +82,25 @@ public class UserResource {
         return ResponseEntity.created(uri).body(userService.saveRole(role));
     }
 
+    /**
+     * Add role to user response entity.
+     *
+     * @param roleToUserForm the role to user form
+     * @return the response entity
+     */
     @PostMapping("/role/addToUser")
     public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm roleToUserForm) {
         userService.addRoleToUser(roleToUserForm.getRoleName(), roleToUserForm.getUsername());
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * Refresh token.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws IOException the io exception
+     */
     @GetMapping("/token/refresh")
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);

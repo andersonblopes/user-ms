@@ -18,20 +18,41 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
+/**
+ * The type Security config.
+ */
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /**
+     * The User details service.
+     */
     private final UserDetailsService userDetailsService;
 
+    /**
+     * The B crypt password encoder.
+     */
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    /**
+     * Configure.
+     *
+     * @param auth the auth
+     * @throws Exception the exception
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
+    /**
+     * Configure.
+     *
+     * @param http the http
+     * @throws Exception the exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -52,6 +73,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
+    /**
+     * Authentication manager bean authentication manager.
+     *
+     * @return the authentication manager
+     * @throws Exception the exception
+     */
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {

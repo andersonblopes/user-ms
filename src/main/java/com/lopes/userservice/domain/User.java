@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * The type User.
+ */
 @Entity
 @Table(name = "user", schema = "public")
 @Data
@@ -21,16 +24,31 @@ import java.util.Collection;
 @AllArgsConstructor
 public class User {
 
+    /**
+     * The Id.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    /**
+     * The Name.
+     */
     private String name;
 
+    /**
+     * The Username.
+     */
     private String username;
 
+    /**
+     * The Password.
+     */
     private String password;
 
+    /**
+     * The Roles.
+     */
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
 }

@@ -26,9 +26,21 @@ import java.util.Map;
 
 import static java.util.Arrays.stream;
 
+/**
+ * The type Custom authorization filter.
+ */
 @Slf4j
 public class CustomAuthorizationFilter extends OncePerRequestFilter {
 
+    /**
+     * Do filter internal.
+     *
+     * @param request     the request
+     * @param response    the response
+     * @param filterChain the filter chain
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         if (request.getServletPath().equals("/api/login") || request.getServletPath().equals("/api/token/refresh")) {

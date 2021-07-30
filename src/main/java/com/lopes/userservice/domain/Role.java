@@ -9,15 +9,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * The type Role.
+ */
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Role {
 
+    /**
+     * The Id.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    /**
+     * The Name.
+     */
     private String name;
 }
