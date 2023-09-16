@@ -8,13 +8,7 @@ import lombok.Data;
 @Data
 public class RoleToUserForm {
 
-    /**
-     * The Username.
-     */
     private String username;
 
-    /**
-     * The Role name.
-     */
     private String roleName;
 }

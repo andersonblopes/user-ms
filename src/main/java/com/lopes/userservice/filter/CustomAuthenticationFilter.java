@@ -29,9 +29,6 @@ import java.util.stream.Collectors;
 @Slf4j
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    /**
-     * The Authentication manager.
-     */
     private final AuthenticationManager authenticationManager;
 
     /**
@@ -43,14 +40,6 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         this.authenticationManager = authenticationManager;
     }
 
-    /**
-     * Attempt authentication authentication.
-     *
-     * @param request  the request
-     * @param response the response
-     * @return the authentication
-     * @throws AuthenticationException the authentication exception
-     */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
@@ -66,16 +55,6 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         return authenticationManager.authenticate(authenticationToken);
     }
 
-    /**
-     * Successful authentication.
-     *
-     * @param request        the request
-     * @param response       the response
-     * @param chain          the chain
-     * @param authentication the authentication
-     * @throws IOException      the io exception
-     * @throws ServletException the servlet exception
-     */
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
         User user = (User) authentication.getPrincipal();

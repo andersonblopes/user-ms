@@ -41,9 +41,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserResource {
 
-    /**
-     * The User service.
-     */
     private final UserService userService;
 
     /**

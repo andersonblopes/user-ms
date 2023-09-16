@@ -18,15 +18,9 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Role {
 
-    /**
-     * The Id.
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    /**
-     * The Name.
-     */
     private String name;
 }

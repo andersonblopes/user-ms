@@ -28,26 +28,10 @@ import java.util.List;
 @Slf4j
 public class UserServiceImpl implements UserService, UserDetailsService {
 
-    /**
-     * The User repository.
-     */
     private final UserRepository userRepository;
-    /**
-     * The Role repository.
-     */
     private final RoleRepository roleRepository;
-    /**
-     * The Password encoder.
-     */
     private final PasswordEncoder passwordEncoder;
 
-    /**
-     * Load user by username user details.
-     *
-     * @param username the username
-     * @return the user details
-     * @throws UsernameNotFoundException the username not found exception
-     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -67,12 +51,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
 
-    /**
-     * Save user user.
-     *
-     * @param user the user
-     * @return the user
-     */
     @Override
     public User saveUser(User user) {
 
@@ -83,12 +61,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.save(user);
     }
 
-    /**
-     * Save role role.
-     *
-     * @param role the role
-     * @return the role
-     */
     @Override
     public Role saveRole(Role role) {
 
@@ -97,12 +69,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return roleRepository.save(role);
     }
 
-    /**
-     * Add role to user.
-     *
-     * @param roleName the role name
-     * @param username the username
-     */
     @Override
     public void addRoleToUser(String roleName, String username) {
 
@@ -114,12 +80,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.getRoles().add(role);
     }
 
-    /**
-     * Gets user.
-     *
-     * @param username the username
-     * @return the user
-     */
     @Override
     public User getUser(String username) {
 
@@ -128,11 +88,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.findByUsername(username);
     }
 
-    /**
-     * Gets users.
-     *
-     * @return the users
-     */
     @Override
     public List<User> getUsers() {
 
