@@ -59,7 +59,7 @@ public class UserResource {
      * @param user the user
      * @return the response entity
      */
-    @PostMapping("/user/save")
+    @PostMapping("/users/save")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
 
@@ -72,7 +72,7 @@ public class UserResource {
      * @param role the role
      * @return the response entity
      */
-    @PostMapping("/role/save")
+    @PostMapping("/roles/save")
     public ResponseEntity<Role> saveRole(@RequestBody Role role) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/role/save").toUriString());
 
@@ -85,7 +85,7 @@ public class UserResource {
      * @param roleToUserForm the role to user form
      * @return the response entity
      */
-    @PostMapping("/role/addToUser")
+    @PostMapping("/roles/addToUser")
     public ResponseEntity<Void> addRoleToUser(@RequestBody RoleToUserForm roleToUserForm) {
         userService.addRoleToUser(roleToUserForm.getRoleName(), roleToUserForm.getUsername());
         return ResponseEntity.ok().build();
