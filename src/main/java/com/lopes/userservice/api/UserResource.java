@@ -36,9 +36,9 @@ import java.util.stream.Collectors;
  * The type User resource.
  */
 @Slf4j
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
-@RequiredArgsConstructor
 public class UserResource {
 
     private final UserService userService;
@@ -86,7 +86,7 @@ public class UserResource {
      * @return the response entity
      */
     @PostMapping("/role/addToUser")
-    public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm roleToUserForm) {
+    public ResponseEntity<Void> addRoleToUser(@RequestBody RoleToUserForm roleToUserForm) {
         userService.addRoleToUser(roleToUserForm.getRoleName(), roleToUserForm.getUsername());
         return ResponseEntity.ok().build();
     }
