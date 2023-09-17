@@ -13,10 +13,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.ArrayList;
 
 /**
- * The type User ms application.
+ * The type Auth ms application.
  */
 @SpringBootApplication
-public class UserMsApplication {
+public class AuthMsApplication {
 
     /**
      * The entry point of application.
@@ -24,7 +24,7 @@ public class UserMsApplication {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        SpringApplication.run(UserMsApplication.class, args);
+        SpringApplication.run(AuthMsApplication.class, args);
     }
 
     /**

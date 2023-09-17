@@ -9,12 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lopes</groupId>
-    <artifactId>userservice</artifactId>
+    <artifactId>auth-ms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>userservice</name>
+    <name>auth-ms</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>16</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
